@@ -49,7 +49,8 @@ namespace brown_deckofcards {
 	}
 	
 	ostream& operator<<(ostream& out, const DeckOfCards& d){
-		out << "test" << d << endl;
+		//TODO: implement correct output
+		out << "test";
 		return out;
 	}
 }

@@ -1,6 +1,20 @@
+// Programmer:  Alexander Brown
+// Student ID: c3260691
+// Version: v1.1
+// Last modified:  17/08/2016
+
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
 #include <ctime>    // for time
+#include "DeckOfCards.h"
+
+using namespace std;
+using namespace brown_deckofcards;
+// ostream& operator << (ostream& out, const DeckOfCards& d){
+		// //TODO: implement correct output
+		// out << "test";
+		// return out;
+	// }
 
 /**
  * This is an example program that shows how to seed a random number generator
@@ -36,11 +50,14 @@ int main(int argc, char* argv[]) {
         srand(seed);
     }
 
-	/* TESTING *** please delete this part of the code for assignment 1
-	   It is here only to demonstrate how to generate random numbers using different seeds. */
-    std::cout << "Random numbers from rand() (will be between 0 and 24)" << std::endl;
-
-    for (int i = 0; i < 25; ++i) {
-        std::cout << i << ": " << (rand() % 25) << std::endl;
-    }
+	/* Starting my own work
+	*/
+	
+	DeckOfCards* deckOfCards = new DeckOfCards();
+	//DeckOfCards deckOfCards;
+	cout << deckOfCards << endl;
+	
+	return EXIT_SUCCESS;
 }
+
+

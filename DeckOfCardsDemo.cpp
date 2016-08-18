@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
 // Version: v1.1
-// Last modified:  17/08/2016
+// Last modified:  18/08/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
@@ -10,11 +10,11 @@
 
 using namespace std;
 using namespace brown_deckofcards;
-// ostream& operator << (ostream& out, const DeckOfCards& d){
-		// //TODO: implement correct output
-		// out << "test";
-		// return out;
-	// }
+ostream& operator << (ostream& out, const DeckOfCards& d){
+		//TODO: implement correct output
+		out << "test";
+		return out;
+	}
 
 /**
  * This is an example program that shows how to seed a random number generator
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
 	
 	DeckOfCards* deckOfCards = new DeckOfCards();
 	//DeckOfCards deckOfCards;
-	cout << deckOfCards << endl;
+	cout << *deckOfCards << endl;
 	
 	return EXIT_SUCCESS;
 }

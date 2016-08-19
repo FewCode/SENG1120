@@ -1,12 +1,13 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.1
-// Last modified:  18/08/2016
+// Version: v1.2
+// Last modified:  19/08/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
 #include <ctime>    // for time
 #include "DeckOfCards.h"
+#include "Node.h"
 
 using namespace std;
 using namespace brown_deckofcards;
@@ -52,6 +53,15 @@ int main(int argc, char* argv[]) {
 	DeckOfCards* deckOfCards = new DeckOfCards();
 	//DeckOfCards deckOfCards;
 	cout << *deckOfCards << endl;
+	
+	Node* head = new Node();
+	Node* tail = new Node();
+	Node* node1 = new Node("Node 1 test");
+	
+	head->setNext(*node1);
+	tail->setPrevious(*node1);
+	
+	cout << "1st item in list data: " << head->getNext()->getData() << endl;
 	
 	return EXIT_SUCCESS;
 }

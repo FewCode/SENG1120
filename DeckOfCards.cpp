@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.0
-// Last modified:  15/08/2016
+// Version: v1.2
+// Last modified:  19/08/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl

@@ -1,18 +1,34 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.0
-// Last modified:  15/08/2016
+// Version: v1.2
+// Last modified:  19/08/2016
 
 #ifndef ALEX_NODE
 #define ALEX_NODE
+
+#include <string>
+using namespace std;
 
 namespace brown_deckofcards {
 class Node
 {
 	public:
+		typedef string valueType;
+		
+		Node(const valueType& data = valueType());
+		
+		void setNext(Node&);
+		void setPrevious(Node&);
+		void setData(valueType&);
+		
+		Node* getNext();
+		Node* getPrevious();
+		valueType getData();
 		
 	private:
-		
+		valueType internalData;
+		Node* next;
+		Node* previous;
 	};
 }
 #endif

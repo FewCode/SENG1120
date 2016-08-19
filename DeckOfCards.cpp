@@ -48,10 +48,10 @@ namespace brown_deckofcards {
 		//TODO: implement reverse
 	}
 	
-	// ostream& operator<<(ostream& out, const DeckOfCards& d){
-		// //TODO: implement correct output
-		// out << "test";
-		// return out;
-	// }
+	ostream& operator<<(ostream& out, const DeckOfCards& d){
+		//TODO: implement correct output
+		out << "test";
+		return out;
+	}
 }
 

@@ -12,8 +12,8 @@
 using namespace std;
 
 namespace brown_deckofcards {
-class DeckOfCards
-{
+	class DeckOfCards
+	{
 	public:
 		//Constructor
 		//Creates a full deck of cards
@@ -30,5 +30,6 @@ class DeckOfCards
 		bool remove(string);	
 		void reverse(); //not sure if void
 	};
+	ostream& operator << (ostream&, const DeckOfCards&);
 }
 #endif

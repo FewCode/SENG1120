@@ -10,11 +10,7 @@
 
 using namespace std;
 using namespace brown_deckofcards;
-ostream& operator << (ostream& out, const DeckOfCards& d){
-		//TODO: implement correct output
-		out << "test";
-		return out;
-	}
+
 
 /**
  * This is an example program that shows how to seed a random number generator

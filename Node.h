@@ -6,9 +6,6 @@
 #ifndef ALEX_NODE
 #define ALEX_NODE
 
-#include <string>
-using namespace std;
-
 namespace brown_deckofcards {
 class Node
 {

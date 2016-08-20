@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3
+// Version: v1.3.1
 // Last modified:  20/08/2016
 
 #include <iostream> // for cout and endl
@@ -50,12 +50,43 @@ int main(int argc, char* argv[]) {
 	/* Starting my own work
 	*/
 	
+	//1) create a new instance of DeckOfCards storing a full deck of cards 
 	DeckOfCards* deckOfCards = new DeckOfCards();
-	//DeckOfCards deckOfCards;
-	cout << *deckOfCards << endl;
-	cout << deckOfCards->length() << endl;
 	
+	//2) Print the deck of cards using value()
+	cout << "New Deck: " << deckOfCards->value() << endl;
 	
+	//3) Shuffle the deck of cards using shuffle()
+	deckOfCards->shuffle();
+	
+	//4) Print the deck of cards again using value()
+	cout << "Shuffled: " << deckOfCards->value() << endl;
+	
+	//5) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D”
+	cout << "\n*Card Positions*" << endl;
+	cout << "4-H: " << deckOfCards->position("4-H") << endl;
+	cout << "10-S: " << deckOfCards->position("10-S") << endl;
+	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
+	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	
+	//6) Print the total number of cards in DeckOfCards using length()
+	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	
+	//7) Remove the cards “4-H” and “10-S”
+	deckOfCards->remove("4-H");
+	deckOfCards->remove("10-S");
+	
+	//8) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D” again 
+	cout << "\n*Card Positions*" << endl;
+	cout << "4-H: " << deckOfCards->position("4-H") << endl;
+	cout << "10-S: " << deckOfCards->position("10-S") << endl;
+	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
+	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	
+	//9) Print the total number of cards in DeckOfCards using length()
+	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	
+	//exit
 	return EXIT_SUCCESS;
 }
 

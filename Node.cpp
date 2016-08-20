@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3
+// Version: v1.3.1
 // Last modified:  20/08/2016
 
 #include "Node.h"
@@ -36,7 +36,7 @@ namespace brown_deckofcards {
 		return previous;
 	}
 	
-	Node::valueType Node::getData(){
+	Node::valueType const Node::getData() const{
 		return internalData;
 	}
 	

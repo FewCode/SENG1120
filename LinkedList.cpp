@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3
+// Version: v1.3.1
 // Last modified:  20/08/2016
 
 #include "LinkedList.h"
@@ -68,6 +68,74 @@ namespace brown_deckofcards {
 			current = newNode;
 		}
 		recountLength();
+	}
+	
+	bool LinkedList::remove(int index) {
+		
+		//check the node exists
+		if (index >= 0 && index < length()) {
+			
+			//move to the node we want to remove
+			moveCurrent(index);
+			
+			//make sure its not the head, avoiding null references
+			if (current != head && current != tail) {
+				current->getNext()->setPrevious(current->getPrevious());
+				current->getPrevious()->setNext(current->getNext());
+			} else if (current == head && current == tail) {
+				head = NULL;
+				tail = NULL;
+			} else if (current == head && current != tail) {
+				current->getNext()->setPrevious(NULL);
+				head = current->getNext();
+			} else if (current != head && current == tail) {
+				current->getPrevious()->setNext(NULL);
+				tail = current->getPrevious();
+			}
+			
+			//delete node to free space and stop leaks
+			delete current;
+			
+			//reset the current back to the start
+			current = head;
+			
+			//count is wrong since we removed an item, so lets recound it
+			recountLength();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	int LinkedList::find (Node::valueType data) {
+		//make sure we have data to find
+		if (length() > 0) {
+			
+			//start at the start of the list
+			int index = 0;
+			current = head;
+			
+			//check the head is not the data we are looking for
+			if (current->getData() == data) {
+					return index;
+			}
+			
+			//start the loop check
+			while (current != tail){
+				
+				//move to the next node
+				index++;
+				current = current->getNext();
+				
+				//check if its the node we are looking for
+				if (current->getData() == data) {
+					return index;
+				}
+			}
+		} 
+		
+		//couldnt find it? return -1 to show that
+		return -1;
 	}
 	
 	void LinkedList::swap(int node1Index, int node2Index) {

@@ -1,10 +1,11 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3
+// Version: v1.3.1
 // Last modified:  20/08/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl
+#include <cstdlib>  // for srand, rand and atoi
 #include <string>
 #include <sstream>
 
@@ -12,9 +13,14 @@ using namespace std;
 
 namespace brown_deckofcards {
 	DeckOfCards::DeckOfCards(){
-		//TODO: implement constructor
+		
+		//create the empty list
 		deck = new LinkedList();
+		
+		//start looping for each suit
 		for (int i = 0; i <= 3; i++) {
+			
+			//pick what suit goes for what number
 			string suit = "";
 			switch (i) {
 				case 0:
@@ -31,11 +37,14 @@ namespace brown_deckofcards {
 					break;
 			}
 			
+			//add the numbers 2 to 10 to the deck
 			for(int j = 2; j <= 10; j++) {
 				std::ostringstream oss;
 				oss << j << "-" << suit;
 				deck->add(oss.str());
 			}
+			
+			//add the face cards to the deck
 			deck->add("J-" + suit);
 			deck->add("Q-" + suit);
 			deck->add("K-" + suit);
@@ -44,12 +53,15 @@ namespace brown_deckofcards {
 	}
 	
 	void DeckOfCards::shuffle() {
-		//TODO: implement shuffle
-		//Must use the Yates algorithm
+		for (int i = deck->length() -1; i >= 1; i--) {
+			int j = (rand()%i);
+			deck->swap(i, j);
+		}
 	}
 	
 	int DeckOfCards::length(){
 		
+		//the linked list will hold the value of length
 		return deck->length();
 	}
 	
@@ -62,8 +74,9 @@ namespace brown_deckofcards {
 	}
 	
 	int DeckOfCards::position(string cardName) {
-		//TODO: implement position
-		return 0;
+		
+		//the linked list can find it for us
+		return deck->find(cardName);
 	}
 	
 	string DeckOfCards::value() const {
@@ -78,8 +91,7 @@ namespace brown_deckofcards {
 	}
 	
 	bool DeckOfCards::remove(string cardName) {
-		//TODO: implement remove
-		return false;
+		return deck->remove(deck->find(cardName));
 	}
 	
 	void DeckOfCards::reverse(){
@@ -88,7 +100,7 @@ namespace brown_deckofcards {
 	
 	ostream& operator<<(ostream& out, const DeckOfCards& d){
 		cout << "\n\nPrinting all items in deck" << endl;
-		cout << d.value() << endl;
+		cout << d.value();
 		
 		return out;
 	}

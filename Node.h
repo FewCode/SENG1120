@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.2
-// Last modified:  19/08/2016
+// Version: v1.3
+// Last modified:  20/08/2016
 
 #ifndef ALEX_NODE
 #define ALEX_NODE
@@ -17,8 +17,8 @@ class Node
 		
 		Node(const valueType& data = valueType());
 		
-		void setNext(Node&);
-		void setPrevious(Node&);
+		void setNext(Node*);
+		void setPrevious(Node*);
 		void setData(valueType&);
 		
 		Node* getNext();

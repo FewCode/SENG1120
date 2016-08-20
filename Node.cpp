@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.2
-// Last modified:  19/08/2016
+// Version: v1.3
+// Last modified:  20/08/2016
 
 #include "Node.h"
 #include <string>
@@ -16,12 +16,12 @@ namespace brown_deckofcards {
 		previous = NULL;
 	}
 	
-	void Node::setNext(Node& node) {
-		next = &node;
+	void Node::setNext(Node* node) {
+		next = node;
 	}
 	
-	void Node::setPrevious(Node& node) {
-		previous = &node;
+	void Node::setPrevious(Node* node) {
+		previous = node;
 	}
 	
 	void Node::setData(valueType& data) {

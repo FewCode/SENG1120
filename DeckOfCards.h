@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.2
-// Last modified:  19/08/2016
+// Version: v1.3
+// Last modified:  20/08/2016
 
 
 
@@ -9,11 +9,12 @@
 #define ALEX_DECKOFCARDS
 
 #include <string>
+#include "LinkedList.h"
 using namespace std;
 
 namespace brown_deckofcards {
-	class DeckOfCards
-	{
+class DeckOfCards
+{
 	public:
 		//Constructor
 		//Creates a full deck of cards
@@ -26,9 +27,12 @@ namespace brown_deckofcards {
 		int length();
 		bool empty();
 		int position(string);
-		string value();
+		string value() const;
 		bool remove(string);	
 		void reverse(); //not sure if void
+		
+	private:
+		LinkedList* deck;
 	};
 	ostream& operator << (ostream&, const DeckOfCards&);
 }

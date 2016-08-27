@@ -1,12 +1,10 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.1
-// Last modified:  20/08/2016
+// Version: v1.3.2
+// Last modified:  27/08/2016
 
 #include "LinkedList.h"
 #include "Node.h"
-
-using namespace brown_deckofcards;
 
 namespace brown_deckofcards {
 	
@@ -17,22 +15,36 @@ namespace brown_deckofcards {
 		listLength = 0;
 	}
 	
-	void LinkedList::add(Node::valueType data) {
+	void LinkedList::add(Node::value_type data) {
+		
+		//create a new node with the data provided
 		Node* newNode = new Node(data);
+		
+		//Check if there is any items in our list
 		if (tail) {
+			
+			//if there is, set the tail's next node to the new node
 			tail->setNext(newNode);
+			
+			//then set the new node's previous to the tail
 			newNode->setPrevious(tail);
+			
+			//next we fix up our pointers
 			tail = newNode;
 			current = newNode;
 		} else {
+			
+			//if no items in our list, simple, set all our internal pointers to point to the new node
 			head = newNode;
 			tail = newNode;
 			current = newNode;
 		}
+		
+		//now update the length of our list
 		recountLength();
 	}
 	
-	void LinkedList::add(Node::valueType data, int index) {
+	void LinkedList::add(Node::value_type data, int index) {
 		
 		//create node to add with data provided
 		Node* newNode = new Node(data);
@@ -40,20 +52,27 @@ namespace brown_deckofcards {
 		//check there is some data in the list
 		if (tail) {
 			
-			//if index has not been used yet, add the node to the end
+			//Check what the index is to decide what to do with it
 			if (index >= length()) {
+				
+				//if index has not been used yet, add the node to the end
 				tail->setNext(newNode);
 				newNode->setPrevious(tail);
 				tail = newNode;
 				current = newNode;
-			} else if (index <= 0) {
+			} else if (index <= 0) { 
+			
+				//if the index at the front, then add the node to the front
 				newNode->setNext(head);
 				head->setPrevious(newNode);
 				head = newNode;
 				current = newNode;
 			} else {
-				moveCurrent(index -1);
 				
+				//move to the index before the one asked for 
+				moveCurrent(index - 1);
+				
+				//update all the pointers to add the new node in
 				current->getNext()->setPrevious(newNode);
 				newNode->setNext(current->getNext());
 				newNode->setPrevious(current);
@@ -62,11 +81,14 @@ namespace brown_deckofcards {
 			}
 			
 		} else {
+			
 			//if no data already, then add
 			head = newNode;
 			tail = newNode;
 			current = newNode;
 		}
+		
+		//now update the length of our list
 		recountLength();
 	}
 	
@@ -107,7 +129,7 @@ namespace brown_deckofcards {
 		}
 	}
 	
-	int LinkedList::find (Node::valueType data) {
+	int LinkedList::find (Node::value_type data) {
 		//make sure we have data to find
 		if (length() > 0) {
 			
@@ -139,6 +161,7 @@ namespace brown_deckofcards {
 	}
 	
 	void LinkedList::swap(int node1Index, int node2Index) {
+		
 		//make sure we can actually swap
 		if (node1Index >= 0 && node1Index < length() && node2Index >= 0 && node2Index < length() && node1Index != node2Index) {
 			bool node1Head = false;
@@ -230,42 +253,64 @@ namespace brown_deckofcards {
 				tail = node1;
 			}
 		}
+		
+		//make sure our list length is up to date
 		recountLength();
 	}
 	
-	
-	Node::valueType LinkedList::get(int index){
-		if (length() > index) {
+	Node::value_type LinkedList::get(int index){
+		
+		//make sure our index is in range
+		if (length() > index && index >= 0) {
 			moveCurrent(index);
 			return current->getData();
 		}
-		return Node::valueType();
+		
+		//just return the default value if we can't find a value
+		return Node::value_type();
 	}
-	
 	
 	int LinkedList::length() const{
 		return listLength;
 	}
 	
 	void LinkedList::moveCurrent(int index) {
+		
+		//move to the start of the list
 		current = head;
 			
+		//move next for index times
 		for (int i = 0; i < index; i++) {
 			current = current->getNext();
 		}
 	}
 	
 	void LinkedList::recountLength() {
+		
+		//start with 0
 		int total = 0;
+		
+		//make sure we have items in our list
 		if (head) {
+			
+			//start at the start
 			current = head;
+			
+			//we have one ite already, so increment
 			total += 1;
 			
+			//if we are not at the end of the list
 			while (current != tail){
+				
+				//get the next item
 				current = current->getNext();
+				
+				//increment the counterindex
 				total += 1;
 			}
 		}
+		
+		//return the number of items counted
 		listLength = total;
 	}
 	

@@ -1,16 +1,14 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.1
-// Last modified:  20/08/2016
+// Version: v1.3.2
+// Last modified:  27/08/2016
 
 #include "Node.h"
-#include <string>
 using namespace std;
-using namespace brown_deckofcards;
 
 namespace brown_deckofcards {
 	
-	Node::Node(const Node::valueType& data){
+	Node::Node(const Node::value_type& data) {
 		internalData = data;
 		next = NULL;
 		previous = NULL;
@@ -24,19 +22,19 @@ namespace brown_deckofcards {
 		previous = node;
 	}
 	
-	void Node::setData(valueType& data) {
+	void Node::setData(value_type& data) {
 		internalData = data;
 	}
 	
-	Node* Node::getNext() {
+	Node* Node::getNext() const {
 		return next;
 	}
 	
-	Node* Node::getPrevious() {
+	Node* Node::getPrevious() const {
 		return previous;
 	}
 	
-	Node::valueType const Node::getData() const{
+	Node::value_type const Node::getData() const {
 		return internalData;
 	}
 	

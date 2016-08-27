@@ -1,13 +1,12 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.1
-// Last modified:  20/08/2016
+// Version: v1.3.2
+// Last modified:  27/08/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
 #include <ctime>    // for time
 #include "DeckOfCards.h"
-#include "LinkedList.h"
 
 using namespace std;
 using namespace brown_deckofcards;
@@ -53,14 +52,15 @@ int main(int argc, char* argv[]) {
 	//1) create a new instance of DeckOfCards storing a full deck of cards 
 	DeckOfCards* deckOfCards = new DeckOfCards();
 	
-	//2) Print the deck of cards using value()
-	cout << "New Deck: " << deckOfCards->value() << endl;
+	//2) Print the deck of cards using value(). The card values have to
+	//		be separated by a single blank space, all in the same line.
+	cout << deckOfCards->value() << endl;
 	
 	//3) Shuffle the deck of cards using shuffle()
 	deckOfCards->shuffle();
 	
-	//4) Print the deck of cards again using value()
-	cout << "Shuffled: " << deckOfCards->value() << endl;
+	//4) Print the deck of cards again using cout <<
+	cout << *deckOfCards << endl;
 	
 	//5) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D”
 	cout << "\n*Card Positions*" << endl;

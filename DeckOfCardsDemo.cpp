@@ -90,6 +90,12 @@ int main(int argc, char* argv[]) {
 	deckOfCards->reverse();
 	cout << "\n" << *deckOfCards << endl;
 	
+	for (int i = 0; i < 1000000; i++) {
+		DeckOfCards* deckOfCards2 = new DeckOfCards();
+		
+		delete deckOfCards2;
+	}
+	
 	//exit
 	return EXIT_SUCCESS;
 }

@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #include "Node.h"
@@ -10,6 +10,11 @@ namespace brown_deckofcards {
 	
 	Node::Node(const Node::value_type& data) {
 		internalData = data;
+		next = NULL;
+		previous = NULL;
+	}
+	
+	Node::~Node() {
 		next = NULL;
 		previous = NULL;
 	}

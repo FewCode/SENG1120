@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #ifndef ALEX_DECKOFCARDS
@@ -14,11 +14,18 @@ namespace brown_deckofcards {
 class DeckOfCards
 {
 	public:
+	
 		//Constructor
 		//Creates a full deck of cards
 		//Precondition
 		//Postcondition: A new instance of DeckOfCards is created containing a newly created deck of cards
 		DeckOfCards();
+		
+		//Destructor
+		//Destructs the object if deck of cards
+		//Precondition
+		//Postcondition: Destructs all the data contained in deck of cards
+		~DeckOfCards();
 		
 		// All the cards in the deck
 		// Precondition: 

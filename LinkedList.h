@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #ifndef ALEX_LINKEDLIST
@@ -19,6 +19,12 @@ class LinkedList
 		// Postcondition: A new empty instance of LinkedList is created with all 
 		//	internal pointers being null
 		LinkedList();
+		
+		// The desctructor
+		// Deletes all the data contained in the list
+		// Precondition:
+		// Postcondition: Every Node in the list will be deleted
+		~LinkedList();
 		
 		// Adds the data to the end of list 
 		// Precondition:

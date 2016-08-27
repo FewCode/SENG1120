@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #include "LinkedList.h"
@@ -9,6 +9,46 @@
 namespace brown_deckofcards {
 	
 	LinkedList::LinkedList() {
+		head = NULL;
+		tail = NULL;
+		current = NULL;
+		listLength = 0;
+	}
+	
+	LinkedList::~LinkedList() {
+		
+		//check we have data
+		if (tail) {
+			
+			//if there is only one item in the list
+			if (head == tail) {
+				
+				//delete the only item
+				delete head;
+			} else {
+				
+				//go to second last item in the list
+				current = tail->getPrevious();
+				
+				//delete the next item
+				delete current->getNext();
+				
+				//if we have more than 1 item left in the list
+				while (current != head) {
+					
+					//move back one
+					current = current->getPrevious();
+					
+					//delete the next item
+					delete current->getNext();
+				}
+				
+				//last item needs to be deleted
+				delete current;
+			}
+		}
+		
+		//reset all the values
 		head = NULL;
 		tail = NULL;
 		current = NULL;

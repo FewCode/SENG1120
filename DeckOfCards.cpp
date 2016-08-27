@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.3
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #include "DeckOfCards.h"
@@ -52,6 +52,10 @@ namespace brown_deckofcards {
 			deck->add("K-" + suit);
 			deck->add("A-" + suit);
 		}
+	}
+	
+	DeckOfCards::~DeckOfCards(){
+		delete deck;
 	}
 	
 	void DeckOfCards::shuffle() {

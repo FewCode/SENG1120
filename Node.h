@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.4
 // Last modified:  27/08/2016
 
 #ifndef ALEX_NODE
@@ -21,6 +21,12 @@ class Node
 		// Postcondition: A new instance of Node is created with the provided data
 		// and has its next and previous Nodes pointing to NULL
 		Node(const value_type& data = value_type());
+		
+		// The destructor
+		// Deletes the internal data in this Node
+		// Precondition:
+		// Postcondition: The internal data of the Node is destroyed
+		~Node();
 		
 		// Mutator method
 		// Overwrites the pointer to the next node

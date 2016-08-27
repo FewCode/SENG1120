@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.3
 // Last modified:  27/08/2016
 
 #include <iostream> // for cout and endl
@@ -85,6 +85,10 @@ int main(int argc, char* argv[]) {
 	
 	//9) Print the total number of cards in DeckOfCards using length()
 	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	
+	//10) Reverse DeckOfCards and print its content with the overloaded << operator
+	deckOfCards->reverse();
+	cout << "\n" << *deckOfCards << endl;
 	
 	//exit
 	return EXIT_SUCCESS;

@@ -1,6 +1,6 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.2
+// Version: v1.3.3
 // Last modified:  27/08/2016
 
 #include "DeckOfCards.h"
@@ -117,7 +117,20 @@ namespace brown_deckofcards {
 	}
 	
 	void DeckOfCards::reverse(){
-		//TODO: implement reverse
+		
+		//create a new empty list
+		LinkedList* reversedDeck = new LinkedList();
+		
+		//add all the items from the old deck to the new deck in reverse order
+		for (int i = length() - 1; i >= 0; i--) {
+			reversedDeck->add(deck->get(i));
+		}
+		
+		//delete the old deck to stop memory leaks
+		delete deck;
+		
+		//make the old deck point to the new deck
+		deck = reversedDeck;
 	}
 	
 	ostream& operator<<(ostream& out, const DeckOfCards& d){

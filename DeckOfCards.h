@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v1.3.5
+// Last modified:  30/08/2016
 
 #ifndef ALEX_DECKOFCARDS
 #define ALEX_DECKOFCARDS
@@ -27,7 +27,7 @@ class DeckOfCards
 		//Postcondition: Destructs all the data contained in deck of cards
 		~DeckOfCards();
 		
-		// All the cards in the deck
+		// All the cards in the deck are shuffled
 		// Precondition: 
 		// Postcondition: The deck will be shuffled according to the Yates algorithm
 		void shuffle();
@@ -35,12 +35,12 @@ class DeckOfCards
 		// Returns the length of the deck of cards
 		// Precondition: 
 		// Postcondition: The length of the deck of cards is returned
-		int length();
+		int length() const;
 		
 		// Returns a bool value based on if the deck is empty or not 
 		// Precondition: 
 		// Postcondition: A false is returned if there are cards in the deck otherwise a true is returned
-		bool empty();
+		bool empty() const;
 		
 		// Returns a the position of the first card that fits the data provided
 		// Precondition: 
@@ -67,7 +67,7 @@ class DeckOfCards
 		LinkedList* deck;
 	};
 	
-	// Removes the first card in the deck that fits the data provided
+	// The overloaded << operator. Prints out all the cards in the deck in a space seperated string
 	// Precondition: The deck of cards is not NULL
 	// Postcondition: Prints out the cards in a space sperated string
 	ostream& operator << (ostream&, const DeckOfCards&);

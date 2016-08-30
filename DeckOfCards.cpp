@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v1.3.5
+// Last modified:  30/08/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl
@@ -71,13 +71,13 @@ namespace brown_deckofcards {
 		}
 	}
 	
-	int DeckOfCards::length(){
+	int DeckOfCards::length() const{
 		
 		//The linked list will hold the value of length
 		return deck->length();
 	}
 	
-	bool DeckOfCards::empty() {
+	bool DeckOfCards::empty() const {
 		
 		//If we have more than 0 items our list is not empty
 		if (length() > 0) {
@@ -105,7 +105,7 @@ namespace brown_deckofcards {
 			cards = cards + deck->get(i);
 			
 			//add a space as well if it is not the last item in the list
-			if (i < deck->length() -1) {
+			if (i < deck->length() - 1) {
 				cards = cards + " ";
 			}
 		}
@@ -140,7 +140,7 @@ namespace brown_deckofcards {
 	ostream& operator<<(ostream& out, const DeckOfCards& d){
 		
 		//use the value method to get a formated string to print
-		cout << d.value();
+		out << d.value();
 		
 		//return our output
 		return out;

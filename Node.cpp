@@ -1,10 +1,10 @@
 // Programmer:  Alexander Brown
+// Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v1.3.6
+// Last modified:  03/09/2016
 
 #include "Node.h"
-using namespace std;
 
 namespace brown_deckofcards {
 	
@@ -41,6 +41,15 @@ namespace brown_deckofcards {
 	
 	Node::value_type const Node::getData() const {
 		return internalData;
+	}
+	
+	ostream& operator<<(ostream& out, const Node& n){
+		
+		//use the value method to get a formated string to print
+		out << n.getData();
+		
+		//return our output
+		return out;
 	}
 	
 }

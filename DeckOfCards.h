@@ -1,4 +1,5 @@
 // Programmer:  Alexander Brown
+// Course: SENG1120
 // Student ID: c3260691
 // Version: v1.3.5
 // Last modified:  30/08/2016

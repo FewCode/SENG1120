@@ -1,7 +1,8 @@
 // Programmer:  Alexander Brown
+// Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v1.3.6
+// Last modified:  03/09/2016
 
 #ifndef ALEX_NODE
 #define ALEX_NODE
@@ -71,5 +72,10 @@ class Node
 		Node* next;
 		Node* previous;
 	};
+	
+	// The overloaded << operator. Prints out all the cards in the deck in a space seperated string
+	// Precondition: The deck of cards is not NULL
+	// Postcondition: Prints out the cards in a space sperated string
+	ostream& operator << (ostream&, const Node&);
 }
 #endif

@@ -1,13 +1,13 @@
 // Programmer:  Alexander Brown
+// Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.5
-// Last modified:  30/08/2016
+// Version: v1.3.6
+// Last modified:  03/09/2016
 
 #include "DeckOfCards.h"
-#include <iostream> // for cout and endl
+#include <iostream> // for cout and endl and string
 #include <cstdlib>  // for srand, rand and atoi
-#include <string>
-#include <sstream>
+#include <sstream> 	// for concatenating our strings and ints together
 
 using namespace std;
 
@@ -61,10 +61,10 @@ namespace brown_deckofcards {
 	void DeckOfCards::shuffle() {
 		
 		//loop through from end to (start + 1)
-		for (int i = deck->length() -1; i >= 1; i--) {
+		for (int i = deck->length() - 1; i >= 1; i--) {
 			
 			//pick a value from the start to the number before j
-			int j = (rand()%i);
+			int j = (rand()%(i+1));
 			
 			//swap those two values
 			deck->swap(i, j);

@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.3
-// Last modified:  27/08/2016
+// Version: v1.3.7
+// Last modified:  07/09/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
@@ -64,32 +64,24 @@ int main(int argc, char* argv[]) {
 	cout << *deckOfCards << endl;
 	
 	//5) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D”
-	cout << "\n*Card Positions*" << endl;
-	cout << "4-H: " << deckOfCards->position("4-H") << endl;
-	cout << "10-S: " << deckOfCards->position("10-S") << endl;
-	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
-	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	cout << deckOfCards->position("4-H") << " " << deckOfCards->position("10-S") << " " << deckOfCards->position("Q-C") << " " << deckOfCards->position("A-D") << endl;
 	
 	//6) Print the total number of cards in DeckOfCards using length()
-	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	cout << deckOfCards->length() << endl;
 	
 	//7) Remove the cards “4-H” and “10-S”
 	deckOfCards->remove("4-H");
 	deckOfCards->remove("10-S");
 	
 	//8) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D” again 
-	cout << "\n*Card Positions*" << endl;
-	cout << "4-H: " << deckOfCards->position("4-H") << endl;
-	cout << "10-S: " << deckOfCards->position("10-S") << endl;
-	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
-	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	cout << deckOfCards->position("4-H") << " " << deckOfCards->position("10-S") << " " << deckOfCards->position("Q-C") << " " << deckOfCards->position("A-D") << endl;
 	
 	//9) Print the total number of cards in DeckOfCards using length()
-	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	cout << deckOfCards->length() << endl;
 	
 	//10) Reverse DeckOfCards and print its content with the overloaded << operator
 	deckOfCards->reverse();
-	cout << "\n" << *deckOfCards << endl;
+	cout << *deckOfCards << endl;
 	
 	//exit
 	return EXIT_SUCCESS;

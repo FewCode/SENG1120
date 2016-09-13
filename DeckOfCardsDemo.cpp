@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.7
-// Last modified:  07/09/2016
+// Version: v2.0.0
+// Last modified:  12/09/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
@@ -50,38 +50,6 @@ int main(int argc, char* argv[]) {
 	/* Starting my own work
 	*/
 	
-	//1) create a new instance of DeckOfCards storing a full deck of cards 
-	DeckOfCards* deckOfCards = new DeckOfCards();
-	
-	//2) Print the deck of cards using value(). The card values have to
-	//		be separated by a single blank space, all in the same line.
-	cout << deckOfCards->value() << endl;
-	
-	//3) Shuffle the deck of cards using shuffle()
-	deckOfCards->shuffle();
-	
-	//4) Print the deck of cards again using cout <<
-	cout << *deckOfCards << endl;
-	
-	//5) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D”
-	cout << deckOfCards->position("4-H") << " " << deckOfCards->position("10-S") << " " << deckOfCards->position("Q-C") << " " << deckOfCards->position("A-D") << endl;
-	
-	//6) Print the total number of cards in DeckOfCards using length()
-	cout << deckOfCards->length() << endl;
-	
-	//7) Remove the cards “4-H” and “10-S”
-	deckOfCards->remove("4-H");
-	deckOfCards->remove("10-S");
-	
-	//8) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D” again 
-	cout << deckOfCards->position("4-H") << " " << deckOfCards->position("10-S") << " " << deckOfCards->position("Q-C") << " " << deckOfCards->position("A-D") << endl;
-	
-	//9) Print the total number of cards in DeckOfCards using length()
-	cout << deckOfCards->length() << endl;
-	
-	//10) Reverse DeckOfCards and print its content with the overloaded << operator
-	deckOfCards->reverse();
-	cout << *deckOfCards << endl;
 	
 	//exit
 	return EXIT_SUCCESS;

@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.6
-// Last modified:  03/09/2016
+// Version: v2.0.0
+// Last modified:  12/09/2016
 
 #include "Node.h"
 
@@ -45,7 +45,7 @@ namespace brown_deckofcards {
 	
 	ostream& operator<<(ostream& out, const Node& n){
 		
-		//use the value method to get a formated string to print
+		//use the getData method to get the internaldata to print
 		out << n.getData();
 		
 		//return our output

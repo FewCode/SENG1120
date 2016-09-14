@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.0
-// Last modified:  12/09/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #ifndef ALEX_CARD
 #define ALEX_CARD
@@ -14,6 +14,12 @@ namespace brown_deckofcards {
 class Card
 {
 	public:
+		
+		// The constructor
+		// Creates a new Card with the data provided
+		// Precondition:
+		// Postcondition: A new instance of Card is created with the provided data
+		Card();
 		
 		// The constructor
 		// Creates a new Card with the data provided
@@ -33,6 +39,8 @@ class Card
 		int getValue() const;
 		bool getFaceUp() const;
 		
+		
+		
 	private:
 		string face;
 		int value;
@@ -43,5 +51,7 @@ class Card
 	// Precondition: The card is not NULL
 	// Postcondition: Prints out the value of card
 	ostream& operator << (ostream&, const Card&);
+	
+	bool operator== (const Card&, const Card&);
 }
 #endif

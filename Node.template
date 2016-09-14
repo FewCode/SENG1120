@@ -1,0 +1,63 @@
+// Programmer:  Alexander Brown
+// Course: SENG1120
+// Student ID: c3260691
+// Version: v2.0.1
+// Last modified:  13/09/2016
+
+
+namespace brown_deckofcards {
+	
+	template <typename value_type>
+	Node<value_type>::Node(const value_type& data) {
+		internalData = data;
+		next = NULL;
+		previous = NULL;
+	}
+	
+	template <typename value_type>
+	Node<value_type>::~Node() {
+		next = NULL;
+		previous = NULL;
+	}
+	
+	template <typename value_type>
+	void Node<value_type>::setNext(Node<value_type>* node) {
+		next = node;
+	}
+	
+	template <typename value_type>
+	void Node<value_type>::setPrevious(Node<value_type>* node) {
+		previous = node;
+	}
+	
+	template <typename value_type>
+	void Node<value_type>::setData(value_type& data) {
+		internalData = data;
+	}
+	
+	template <typename value_type>
+	Node<value_type>* Node<value_type>::getNext() const {
+		return next;
+	}
+	
+	template <typename value_type>
+	Node<value_type>* Node<value_type>::getPrevious() const {
+		return previous;
+	}
+	
+	template <typename value_type>
+	value_type const Node<value_type>::getData() const {
+		return internalData;
+	}
+	
+	template <typename value_type>
+	ostream& operator<<(ostream& out, const Node<value_type>& n){
+		
+		//use the getData method to get the internaldata to print
+		out << n.getData();
+		
+		//return our output
+		return out;
+	}
+	
+}

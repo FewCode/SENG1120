@@ -1,22 +1,24 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
-#include "LinkedList.h"
-#include "Node.h"
+//#include "LinkedList.h"
+//#include "Node.h"
 
 namespace brown_deckofcards {
 	
-	LinkedList::LinkedList() {
+	template <typename value_type>
+	LinkedList<value_type>::LinkedList() {
 		head = NULL;
 		tail = NULL;
 		current = NULL;
 		listLength = 0;
 	}
 	
-	LinkedList::~LinkedList() {
+	template <typename value_type>
+	LinkedList<value_type>::~LinkedList() {
 		
 		//check we have data
 		if (tail) {
@@ -56,10 +58,11 @@ namespace brown_deckofcards {
 		listLength = 0;
 	}
 	
-	void LinkedList::add(Node::value_type data) {
+	template <typename value_type>
+	void LinkedList<value_type>::add(value_type data) {
 		
 		//create a new node with the data provided
-		Node* newNode = new Node(data);
+		Node<value_type>* newNode = new Node<value_type>(data);
 		
 		//Check if there is any items in our list
 		if (tail) {
@@ -85,10 +88,11 @@ namespace brown_deckofcards {
 		recountLength();
 	}
 	
-	void LinkedList::add(Node::value_type data, int index) {
+	template <typename value_type>
+	void LinkedList<value_type>::add(value_type data, int index) {
 		
 		//create node to add with data provided
-		Node* newNode = new Node(data);
+		Node<value_type>* newNode = new Node<value_type>(data);
 		
 		//check there is some data in the list
 		if (tail) {
@@ -133,7 +137,8 @@ namespace brown_deckofcards {
 		recountLength();
 	}
 	
-	bool LinkedList::remove(int index) {
+	template <typename value_type>
+	bool LinkedList<value_type>::remove(int index) {
 		
 		//check the node exists
 		if (index >= 0 && index < length()) {
@@ -170,7 +175,8 @@ namespace brown_deckofcards {
 		}
 	}
 	
-	int LinkedList::find (Node::value_type data) {
+	template <typename value_type>
+	int LinkedList<value_type>::find (value_type data) {
 		//make sure we have data to find
 		if (length() > 0) {
 			
@@ -201,7 +207,8 @@ namespace brown_deckofcards {
 		return -1;
 	}
 	
-	void LinkedList::swap(int node1Index, int node2Index) {
+	template <typename value_type>
+	void LinkedList<value_type>::swap(int node1Index, int node2Index) {
 		
 		//make sure we can actually swap
 		if (node1Index >= 0 && node1Index < length() && node2Index >= 0 && node2Index < length() && node1Index != node2Index) {
@@ -212,9 +219,9 @@ namespace brown_deckofcards {
 			
 			//set up the node references we need
 			moveCurrent(node1Index);
-			Node* node1 = current;
+			Node<value_type>* node1 = current;
 			moveCurrent(node2Index);
-			Node* node2 = current;
+			Node<value_type>* node2 = current;
 			
 			//check if one of the nodes we are swaping are the head
 			if (node1 == head) {
@@ -299,7 +306,8 @@ namespace brown_deckofcards {
 		recountLength();
 	}
 	
-	Node::value_type LinkedList::get(int index){
+	template <typename value_type>
+	value_type LinkedList<value_type>::get(int index){
 		
 		//make sure our index is in range
 		if (length() > index && index >= 0) {
@@ -308,14 +316,16 @@ namespace brown_deckofcards {
 		}
 		
 		//just return the default value if we can't find a value
-		return Node::value_type();
+		return value_type();
 	}
 	
-	int LinkedList::length() const{
+	template <typename value_type>
+	int LinkedList<value_type>::length() const{
 		return listLength;
 	}
 	
-	void LinkedList::moveCurrent(int index) {
+	template <typename value_type>
+	void LinkedList<value_type>::moveCurrent(int index) {
 		
 		//move to the start of the list
 		current = head;
@@ -326,7 +336,8 @@ namespace brown_deckofcards {
 		}
 	}
 	
-	void LinkedList::recountLength() {
+	template <typename value_type>
+	void LinkedList<value_type>::recountLength() {
 		
 		//start with 0
 		int total = 0;

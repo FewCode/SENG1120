@@ -1,14 +1,15 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.5
-// Last modified:  30/08/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #ifndef ALEX_DECKOFCARDS
 #define ALEX_DECKOFCARDS
 
 #include <string>
 #include "LinkedList.h"
+#include "Card.h"
 using namespace std;
 
 namespace brown_deckofcards {
@@ -65,7 +66,7 @@ class DeckOfCards
 		void reverse(); 
 		
 	private:
-		LinkedList* deck;
+		LinkedList<Card>* deck;
 	};
 	
 	// The overloaded << operator. Prints out all the cards in the deck in a space seperated string

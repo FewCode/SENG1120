@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.0
-// Last modified:  12/09/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #ifndef ALEX_NODE
 #define ALEX_NODE
@@ -11,11 +11,11 @@
 using namespace std;
 
 namespace brown_deckofcards {
+	
+template <typename value_type>
 class Node
 {
 	public:
-		typedef string value_type;
-		
 		// The constructor
 		// Creates a new Node with the data provided
 		// Precondition:
@@ -69,13 +69,16 @@ class Node
 		
 	private:
 		value_type internalData;
-		Node* next;
-		Node* previous;
+		Node<value_type>* next;
+		Node<value_type>* previous;
 	};
 	
 	// The overloaded << operator. Prints out the Node's value
-	// Precondition: The deck of cards is not NULL
+	// Precondition: The Node is not NULL
 	// Postcondition: Prints out the Node's value
-	ostream& operator << (ostream&, const Node&);
+	template <typename value_type>
+	ostream& operator << (ostream&, const Node<value_type>&);
 }
+
+#include "Node.template"
 #endif

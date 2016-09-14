@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.4
-// Last modified:  27/08/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #ifndef ALEX_LINKEDLIST
 #define ALEX_LINKEDLIST
@@ -10,6 +10,8 @@
 #include "Node.h"
 
 namespace brown_deckofcards {
+	
+template <typename value_type>
 class LinkedList
 {
 	public:
@@ -30,12 +32,12 @@ class LinkedList
 		// Adds the data to the end of list 
 		// Precondition:
 		// Postcondition: The data provided will be added to the end list as a new node
-		void add(Node::value_type);
+		void add(value_type);
 		
 		// Adds the data to the list at the index provided
 		// Precondition:
 		// Postcondition: The data provided will be added to the the specified index in the list as a new node
-		void add(Node::value_type, int);
+		void add(value_type, int);
 		
 		// Removes the item at the index provided
 		// Precondition:
@@ -46,7 +48,7 @@ class LinkedList
 		// Returns the index of the first item that matches the data provided
 		// Precondition:
 		// Postcondition: If the value is found, the index is returned. If not, then -1 is returned
-		int find (Node::value_type);
+		int find (value_type);
 		
 		// Swaps two items in the list
 		// Precondition:
@@ -58,7 +60,7 @@ class LinkedList
 		// Precondition: The index provided is valid
 		// Postcondition: If the index is valid, the data of the item at that position is returned.
 		//	If not, then the default value for the variable is returned
-		Node::value_type get(int);
+		value_type get(int);
 		
 		// Returns the length of the list
 		// Precondition:
@@ -66,9 +68,9 @@ class LinkedList
 		int length() const;
 		
 	private:
-		Node* head;
-		Node* tail;
-		Node* current;
+		Node<value_type>* head;
+		Node<value_type>* tail;
+		Node<value_type>* current;
 		int listLength;
 		
 		// Moves the current pointer to the specified index
@@ -82,4 +84,6 @@ class LinkedList
 		void recountLength();
 	};
 }
+
+#include "LinkedList.template"
 #endif

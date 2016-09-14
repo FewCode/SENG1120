@@ -1,12 +1,18 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.0
-// Last modified:  12/09/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #include "Card.h"
 
 namespace brown_deckofcards {
+	
+	Card::Card() {
+		face = "";
+		value = -1;
+		faceUp = false;
+	}
 	
 	Card::Card(string cardFace, int cardValue, bool isCardFaceUp) {
 		face = cardFace;
@@ -35,6 +41,10 @@ namespace brown_deckofcards {
 	
 	bool Card::getFaceUp() const {
 		return faceUp;
+	}
+	
+	bool operator== (const Card& card1, const Card& card2){
+		return card1.getFace() == card2.getFace();
 	}
 	
 	ostream& operator<<(ostream& out, const Card& c){

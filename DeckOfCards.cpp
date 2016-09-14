@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v1.3.6
-// Last modified:  03/09/2016
+// Version: v2.0.1
+// Last modified:  13/09/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl and string
@@ -15,7 +15,7 @@ namespace brown_deckofcards {
 	DeckOfCards::DeckOfCards(){
 		
 		//create the empty list
-		deck = new LinkedList();
+		deck = new LinkedList<Card>();
 		
 		//start looping for each suit
 		for (int i = 0; i <= 3; i++) {
@@ -43,14 +43,22 @@ namespace brown_deckofcards {
 				//ints dont like the be added with strings so an ostreangsteam is used to concatenate
 				std::ostringstream oss;
 				oss << j << "-" << suit;
-				deck->add(oss.str());
+				
+				Card newCard(oss.str(), j, false);
+				deck->add(newCard);
 			}
 			
 			//add the face cards to the deck
-			deck->add("J-" + suit);
-			deck->add("Q-" + suit);
-			deck->add("K-" + suit);
-			deck->add("A-" + suit);
+			Card jackCard("J-" + suit, 10, false);
+			Card queenCard("Q-" + suit, 10, false);
+			Card kingCard("K-" + suit, 10, false);
+			Card aceCard("A-" + suit, 11, false);
+			
+			
+			deck->add(jackCard);
+			deck->add(queenCard);
+			deck->add(kingCard);
+			deck->add(aceCard);
 		}
 	}
 	
@@ -90,7 +98,8 @@ namespace brown_deckofcards {
 	int DeckOfCards::position(string cardName) {
 		
 		//the linked list can find it for us
-		return deck->find(cardName);
+		Card lostCard(cardName, -0, false);
+		return deck->find(lostCard);
 	}
 	
 	string DeckOfCards::value() const {
@@ -102,7 +111,7 @@ namespace brown_deckofcards {
 		for (int i = 0; i < deck->length(); i++) {
 			
 			//add the card to the string
-			cards = cards + deck->get(i);
+			cards = cards + deck->get(i).getFace();
 			
 			//add a space as well if it is not the last item in the list
 			if (i < deck->length() - 1) {
@@ -117,13 +126,14 @@ namespace brown_deckofcards {
 	bool DeckOfCards::remove(string cardName) {
 		
 		//use inbuilt methods in string to find the index of the card and remove it
-		return deck->remove(deck->find(cardName));
+		Card lostCard(cardName, -0, false);
+		return deck->remove(deck->find(lostCard));
 	}
 	
 	void DeckOfCards::reverse(){
 		
 		//create a new empty list
-		LinkedList* reversedDeck = new LinkedList();
+		LinkedList<Card>* reversedDeck = new LinkedList<Card>();
 		
 		//add all the items from the old deck to the new deck in reverse order
 		for (int i = length() - 1; i >= 0; i--) {

@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.0
-// Last modified:  12/09/2016
+// Version: v2.0.2
+// Last modified:  18/09/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
@@ -49,7 +49,65 @@ int main(int argc, char* argv[]) {
 
 	/* Starting my own work
 	*/
+	//1) create a new instance of DeckOfCards storing a full deck of cards 
+	DeckOfCards* deckOfCards = new DeckOfCards();
 	
+	//2) Print the deck of cards using value(). The card values have to
+	//		be separated by a single blank space, all in the same line.
+	cout << deckOfCards->value() << endl;
+	
+	//3) Shuffle the deck of cards using shuffle()
+	deckOfCards->shuffle();
+	
+	//4) Print the deck of cards again using cout <<
+	cout << *deckOfCards << endl;
+	
+	//5) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D”
+	cout << "\n*Card Positions*" << endl;
+	cout << "4-H: " << deckOfCards->position("4-H") << endl;
+	cout << "10-S: " << deckOfCards->position("10-S") << endl;
+	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
+	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	
+	//6) Print the total number of cards in DeckOfCards using length()
+	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	
+	//7) Remove the cards “4-H” and “10-S”
+	deckOfCards->remove("4-H");
+	deckOfCards->remove("10-S");
+	
+	//8) Print the position of cards “4-H”, “10-S”, “Q-C” and “A-D” again 
+	cout << "\n*Card Positions*" << endl;
+	cout << "4-H: " << deckOfCards->position("4-H") << endl;
+	cout << "10-S: " << deckOfCards->position("10-S") << endl;
+	cout << "Q-C: " << deckOfCards->position("Q-C") << endl;
+	cout << "A-D: " << deckOfCards->position("A-D") << endl;
+	
+	//9) Print the total number of cards in DeckOfCards using length()
+	cout << "Total number of cards: " << deckOfCards->length() << endl;
+	
+	//10) Reverse DeckOfCards and print its content with the overloaded << operator
+	deckOfCards->reverse();
+	cout << "\n" << *deckOfCards << endl;
+	
+	
+	Card card1("2-H", false);
+	Card card2("3-S", false);
+	Card card3("5-H", false);
+	Card card4("7-H", false);
+	Card card5("6-H", false);
+	Card card6("9-H", false);
+	Card card7("10-H", false);
+	Card card8;	
+	
+	cout << card1 << "=" << card1.getValue() << endl;
+	cout << card2 << "=" << card2.getValue() << endl;
+	cout << card3 << "=" << card3.getValue() << endl;
+	cout << card4 << "=" << card4.getValue() << endl;
+	cout << card5 << "=" << card5.getValue() << endl;
+	cout << card6 << "=" << card6.getValue() << endl;
+	cout << card7 << "=" << card7.getValue() << endl;
+	cout << card8 << "=" << card8.getValue() << endl;
 	
 	//exit
 	return EXIT_SUCCESS;

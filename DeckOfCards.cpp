@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.1
-// Last modified:  13/09/2016
+// Version: v2.0.2
+// Last modified:  18/09/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl and string
@@ -53,7 +53,6 @@ namespace brown_deckofcards {
 			Card queenCard("Q-" + suit, 10, false);
 			Card kingCard("K-" + suit, 10, false);
 			Card aceCard("A-" + suit, 11, false);
-			
 			
 			deck->add(jackCard);
 			deck->add(queenCard);
@@ -145,6 +144,17 @@ namespace brown_deckofcards {
 		
 		//make the old deck point to the new deck
 		deck = reversedDeck;
+	}
+	
+	string DeckOfCards::pop() {
+		string popedCard = deck->get(0).getFace();
+		deck->remove(0);
+		return popedCard;
+	}
+	
+	void DeckOfCards::push(string card) {
+		Card cardToPush(card, false);
+		deck->add(cardToPush, 0);
 	}
 	
 	ostream& operator<<(ostream& out, const DeckOfCards& d){

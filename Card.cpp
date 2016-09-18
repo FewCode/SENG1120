@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.1
-// Last modified:  13/09/2016
+// Version: v2.0.2
+// Last modified:  18/09/2016
 
 #include "Card.h"
 
@@ -10,8 +10,14 @@ namespace brown_deckofcards {
 	
 	Card::Card() {
 		face = "";
-		value = -1;
+		value = calculateValue("");
 		faceUp = false;
+	}
+	
+	Card::Card(string cardFace, bool isCardFaceUp) {
+		face = cardFace;
+		value = calculateValue(cardFace);
+		faceUp = isCardFaceUp;
 	}
 	
 	Card::Card(string cardFace, int cardValue, bool isCardFaceUp) {
@@ -41,6 +47,39 @@ namespace brown_deckofcards {
 	
 	bool Card::getFaceUp() const {
 		return faceUp;
+	}
+	
+	int Card::calculateValue(const string face) const {
+		
+		if (face == "") {
+			return -1;
+		} else {
+			char firstCharacter = face.at(0);
+			if (firstCharacter == '1' || firstCharacter == 'J' || firstCharacter == 'Q' || firstCharacter == 'K') {
+				return 10;
+			} else if (firstCharacter == 'A') {
+				return 11;
+			} else if (firstCharacter == '2') {
+				return 2;
+			} else if (firstCharacter == '3') {
+				return 3;
+			} else if (firstCharacter == '4') {
+				return 4;
+			} else if (firstCharacter == '5') {
+				return 5;
+			} else if (firstCharacter == '6') {
+				return 6;
+			} else if (firstCharacter == '7') {
+				return 7;
+			} else if (firstCharacter == '8') {
+				return 8;
+			} else if (firstCharacter == '9') {
+				return 9;
+			}
+		}
+		
+		
+		return 0;
 	}
 	
 	bool operator== (const Card& card1, const Card& card2){

@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.1
+// Version: v2.0.2
 // Last modified:  13/09/2016
 
 #ifndef ALEX_DECKOFCARDS
@@ -64,6 +64,16 @@ class DeckOfCards
 		// Precondition: 
 		// Postcondition: The order of the list is reversed.
 		void reverse(); 
+		
+		// 
+		// Precondition: 
+		// Postcondition: 
+		string pop();
+		
+		// 
+		// Precondition: 
+		// Postcondition: 
+		void push(string);
 		
 	private:
 		LinkedList<Card>* deck;

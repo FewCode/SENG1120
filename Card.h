@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.1
-// Last modified:  13/09/2016
+// Version: v2.0.2
+// Last modified:  18/09/2016
 
 #ifndef ALEX_CARD
 #define ALEX_CARD
@@ -20,6 +20,8 @@ class Card
 		// Precondition:
 		// Postcondition: A new instance of Card is created with the provided data
 		Card();
+		
+		Card(string, bool);
 		
 		// The constructor
 		// Creates a new Card with the data provided
@@ -45,6 +47,8 @@ class Card
 		string face;
 		int value;
 		bool faceUp;
+		
+		int calculateValue(const string) const;
 	};
 	
 	// The overloaded << operator. Prints out all the cards in the deck in a space seperated string

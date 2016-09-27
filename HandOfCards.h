@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.3
+// Version: v2.0.4
 // Last modified:  27/09/2016
 
 #ifndef ALEX_HANDOFCARDS
@@ -21,7 +21,7 @@ class HandOfCards
 		
 		int count();
 		int countAll();
-		string value();
+		string value() const;
 		void faceUp();
 		void add(Card, bool);
 		

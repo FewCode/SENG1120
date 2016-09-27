@@ -1,7 +1,7 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.3
+// Version: v2.0.4
 // Last modified:  27/09/2016
 
 #include "HandOfCards.h"
@@ -42,7 +42,7 @@ namespace brown_deckofcards {
 		return totalCount;
 	}
 	
-	string HandOfCards::value() {
+	string HandOfCards::value() const {
 		string cards = "";
 		
 		for (int i = 0; i < hand->length(); i++) {
@@ -77,7 +77,7 @@ namespace brown_deckofcards {
 	ostream& operator<<(ostream& out, const HandOfCards& h){
 		
 		
-		out << "test";
+		out << h.value();
 		
 		//return our output
 		return out;

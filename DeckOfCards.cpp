@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.2
-// Last modified:  18/09/2016
+// Version: v2.0.3
+// Last modified:  24/09/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl and string
@@ -45,7 +45,7 @@ namespace brown_deckofcards {
 				oss << j << "-" << suit;
 				
 				Card newCard(oss.str(), j, false);
-				deck->add(newCard);
+				push(newCard);
 			}
 			
 			//add the face cards to the deck
@@ -54,10 +54,13 @@ namespace brown_deckofcards {
 			Card kingCard("K-" + suit, 10, false);
 			Card aceCard("A-" + suit, 11, false);
 			
-			deck->add(jackCard);
-			deck->add(queenCard);
-			deck->add(kingCard);
-			deck->add(aceCard);
+			push(jackCard);
+			push(queenCard);
+			push(kingCard);
+			push(aceCard);
+			
+			//shuffle the deck to put it in a random order
+			shuffle();
 		}
 	}
 	
@@ -146,14 +149,13 @@ namespace brown_deckofcards {
 		deck = reversedDeck;
 	}
 	
-	string DeckOfCards::pop() {
-		string popedCard = deck->get(0).getFace();
+	Card DeckOfCards::pop() {
+		Card popedCard = deck->get(0);
 		deck->remove(0);
 		return popedCard;
 	}
 	
-	void DeckOfCards::push(string card) {
-		Card cardToPush(card, false);
+	void DeckOfCards::push(Card cardToPush) {
 		deck->add(cardToPush, 0);
 	}
 	

@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.3
-// Last modified:  24/09/2016
+// Version: v2.0.5
+// Last modified:  01/10/2016
 
 #include "DeckOfCards.h"
 #include <iostream> // for cout and endl and string
@@ -150,12 +150,20 @@ namespace brown_deckofcards {
 	}
 	
 	Card DeckOfCards::pop() {
+		
+		//Get a copy of the top card
 		Card popedCard = deck->get(0);
+		
+		//remove the card, the linkedlist will automatically delete the card in memory
 		deck->remove(0);
+		
+		//return the copy of the card
 		return popedCard;
 	}
 	
 	void DeckOfCards::push(Card cardToPush) {
+		
+		//add the card to the top of the linkedlist
 		deck->add(cardToPush, 0);
 	}
 	

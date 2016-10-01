@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.3
-// Last modified:  24/09/2016
+// Version: v2.0.5
+// Last modified:  01/10/2016
 
 #ifndef ALEX_DECKOFCARDS
 #define ALEX_DECKOFCARDS
@@ -65,14 +65,14 @@ class DeckOfCards
 		// Postcondition: The order of the list is reversed.
 		void reverse(); 
 		
-		// 
-		// Precondition: 
-		// Postcondition: 
+		// Treats the deck like a stack and removes and returns a card frop the top of the deck
+		// Precondition: There is a card in the deck
+		// Postcondition: A copy of the top card will be returned and the card will be removed and deleted
 		Card pop();
 		
-		// 
-		// Precondition: 
-		// Postcondition: 
+		// Treats the deck like a stack and puts a card on the top of the deck
+		// Precondition: The card being added is initialized
+		// Postcondition: The card will be added to the top of the deck
 		void push(Card);
 		
 	private:

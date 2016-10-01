@@ -1,33 +1,41 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.2
-// Last modified:  18/09/2016
+// Version: v2.0.5
+// Last modified:  01/10/2016
 
 #include "Card.h"
 
 namespace brown_deckofcards {
 	
 	Card::Card() {
+		
+		// set default values
 		face = "";
 		value = calculateValue("");
 		faceUp = false;
 	}
 	
 	Card::Card(string cardFace, bool isCardFaceUp) {
+		
+		// use the provided data as initial data
 		face = cardFace;
-		value = calculateValue(cardFace);
 		faceUp = isCardFaceUp;
+		
+		// calculate the value of the card based on the face provided
+		value = calculateValue(cardFace);
 	}
 	
 	Card::Card(string cardFace, int cardValue, bool isCardFaceUp) {
+		
+		// use the provided data as initial data
 		face = cardFace;
 		value = cardValue;
 		faceUp = isCardFaceUp;
 	}
 	
 	Card::~Card() {
-		//set all our data to their initial values
+		// set all our data to their initial values
 		face = "";
 		value = 0;
 		faceUp = false;
@@ -51,9 +59,17 @@ namespace brown_deckofcards {
 	
 	int Card::calculateValue(const string face) const {
 		
+		// if the face is blank send an error message
 		if (face == "") {
 			return -1;
 		} else {
+			
+			// Get the first character of the face to check.
+			// The First character determines the card value.
+			//		Face cards are 10, so J, Q, K
+			//		Ace is 11, so A
+			//		10 is valued at 10, but since we are getting the first character it is 1. so 1 is valued 10
+			//		All other numbers are their own value
 			char firstCharacter = face.at(0);
 			if (firstCharacter == '1' || firstCharacter == 'J' || firstCharacter == 'Q' || firstCharacter == 'K') {
 				return 10;
@@ -83,6 +99,8 @@ namespace brown_deckofcards {
 	}
 	
 	bool operator== (const Card& card1, const Card& card2){
+		
+		//compare faces
 		return card1.getFace() == card2.getFace();
 	}
 	

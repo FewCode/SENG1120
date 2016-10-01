@@ -1,8 +1,8 @@
 // Programmer:  Alexander Brown
 // Course: SENG1120
 // Student ID: c3260691
-// Version: v2.0.4
-// Last modified:  27/09/2016
+// Version: v2.0.5
+// Last modified:  01/10/2016
 
 #include <iostream> // for cout and endl
 #include <cstdlib>  // for srand, rand and atoi
@@ -54,6 +54,7 @@ int main(int argc, char* argv[]) {
 	
 	//1) Create a new instance of DeckOfCards storing a full deck of cards.
 	DeckOfCards* deck = new DeckOfCards();
+	//no need to shuffle the deck as the constructor does this for us as per specifications
 	
 	//2) Create tow instances of HandOfCards, named player1 and dealer
 	HandOfCards* player1 = new HandOfCards();
@@ -61,6 +62,7 @@ int main(int argc, char* argv[]) {
 	
 	//3)Looping through the player and dealer, give them one card each, facing up.
 	//	then give one card to player 1 facing up and one card to the dealer facing down.
+	//NOTE: loop doesnt make sense becasue for this game we will always give them 2 cards each and the last one is different
 	Card card = deck->pop();
 	player1->add(card, true);
 	
@@ -85,13 +87,19 @@ int main(int argc, char* argv[]) {
 		
 		//5) check if the player or the dealer have a count of 21(ace + 10).
 		if (player1->count() == 21 && dealer->countAll() == 21) {
-			cout << "Tie! There are no winners.";
+			
+			//no winners :(
+			cout << "\nTie! There are no winners.";
 			exitLoop = true;
 		} else if (player1->count() == 21){
-			cout << "The player is the winner!";
+			
+			//The player won!
+			cout << "\nThe player is the winner!";
 			exitLoop = true;
 		} else if (dealer->countAll() == 21 || player1->count() > 21){
-			cout << "The dealer is the winner!";
+			
+			//the dealer had blackjack or the player bust
+			cout << "\nThe dealer is the winner!";
 			exitLoop = true;
 		} else {
 			if (blackjackPhase == 1) {
@@ -99,17 +107,26 @@ int main(int argc, char* argv[]) {
 				if (player1->count() < 21) {
 					int userInput;
 					
+					//get the user input
 					cout << "Player, do you want to Hit (1) or Stand (2)?" << endl;
 					cin >> userInput;
+					cout << endl;
 					
+					//check what the user wanted to do
 					if (userInput == 1) {
+						
+						//hit
 						card = deck->pop();
 						player1->add(card, true);
 					} else {
+						
+						//stand
 						blackjackPhase = 2;
 					}
 				}
 			} else if (blackjackPhase == 2) {
+				
+				//keep giving the dealer cards till they get over 16
 				while (blackjackPhase == 2) {
 					if (dealer->countAll() <= 16) {
 						card = deck->pop();
@@ -122,24 +139,35 @@ int main(int argc, char* argv[]) {
 					}
 				}
 				
+				//face all cards up so we can see what the dealer has, then print out all the cards
 				dealer->faceUp();
 				cout << "Player: " << *player1 << endl;
 				cout << "Dealer: " << *dealer <<  endl;
 				cout << "(P=" << player1->count() << ")(D=" << dealer->count() << ")" << endl;
+				
+				//check who won or if there was a tie
 				if ((player1->count() > dealer->count() ||  dealer->count() > 21) && player1->count() <= 21) {
-					cout << "The Player is the winner." << endl;
-					exitLoop = true;
+					
+					//player won for having a better card count or by the dealer busting
+					cout << "\nThe Player is the winner." << endl;
 				} else if ((dealer->count() > player1->count() ||  dealer->count() > 21) && dealer->count() <= 21) {
-					cout << "The Dealer is the winner." << endl;
-					exitLoop = true;
+					
+					//dealer won for having a better card count or by the player busting
+					cout << "\nThe Dealer is the winner." << endl;
 				} else {
-					cout << "Tie! There are no winners." << endl;
-					exitLoop = true;
+					
+					//same cards, tie
+					cout << "\nTie! There are no winners." << endl;
 				}
+				exitLoop = true;
 			}
 		}
 	}
 	
+	//clean objects as we close the application
+	delete deck;
+	delete player1;
+	delete dealer;
 	
 	//exit
 	return EXIT_SUCCESS;
